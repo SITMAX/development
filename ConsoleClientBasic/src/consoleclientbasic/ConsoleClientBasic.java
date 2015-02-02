@@ -17,6 +17,8 @@ public class ConsoleClientBasic {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Hello World From ICG!! ");
+        System.out.println(Float.parseFloat("1422498589147"));
+        System.out.println(Double.parseDouble("1422498589147"));
     }
     
 }
