@@ -23,4 +23,5 @@ public class PGTableTypes implements Serializable {
     static public String NUMERIC = "numeric";
     static public String REAL = "real";
     static public String GEOMETRY = "geometry";
+    
 }
