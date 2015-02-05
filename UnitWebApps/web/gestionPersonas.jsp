@@ -20,10 +20,10 @@
                     alert('crear...');
                 },
                 editar: function (options) {
-                    alert('crear...');
+                    alert('editar...');
                 },
                 eliminar: function (options) {
-                    alert('crear...');
+                    alert('eliminar...');
                 }
             };
             //Main App Init
