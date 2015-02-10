@@ -26,6 +26,7 @@
                     alert('eliminar...');
                 }
             };
+            //Prueba Commit ---rhuanacuni
             //Main App Init
             domain.Panel = {
                 init: function () {
