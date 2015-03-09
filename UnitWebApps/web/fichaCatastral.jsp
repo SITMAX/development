@@ -20,16 +20,8 @@
                             name: 'TIPOTITULAR'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Nombres',
-                            name: 'NOMBRES'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Paterno',
-                            name: 'PATERNO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Materno',
-                            name: 'MATERNO'
+                            fieldLabel: 'Nombre completo',
+                            name: 'NOMBRE'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Tipo documento',
@@ -74,8 +66,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.propietarioFields(options)
                     });
@@ -146,8 +137,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.ubicacionParcelaFields(options)
                     });
@@ -202,8 +192,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.parcelaFields(options)
                     });
@@ -241,8 +230,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.datosFisicosMensuraFields(options)
                     });
@@ -280,8 +268,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.datosFisicosEscrituraFields(options)
                     });
@@ -351,8 +338,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.datosFisicosCampoFields(options)
                     });
@@ -395,17 +381,63 @@
                 },
                 restricionesDominioForm: function (options) {
                     var form = new Ext.FormPanel({
-                        frame: false,
+                        labelAlign: 'top',
+                        frame: true,
                         autoHeight: true,
-                        bodyStyle: 'padding:10px',
+                        bodyStyle: 'padding:5px 5px 0',
                         labelWidth: 100,
                         waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
-                        },
-                        items: this.restricionesDominioFields(options)
+                        //items: this.restricionesDominioFields(options)
+                        layout: 'column',
+                        items: [{
+                                columnWidth: .5,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Afectada a ensanche de calle',
+                                        name: 'AFECTADA'
+                                    }, {
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Número ordenanza - año ordenanza',
+                                        name: 'NROORDENANZA'
+                                    }]
+                            }, {
+                                columnWidth: .5,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Metros lineales de afectación',
+                                        name: 'METROSAFECTACION'
+                                    }, {
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Superficie afectada',
+                                        name: 'SUPERFICIEAFECTADA'
+                                    }]
+                            }, {
+                                columnWidth: .5,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Fondos de manzana',
+                                        name: 'FONDOSMANZANA'
+                                    }, {
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Metros lineales de afectación - Fondo de manzana',
+                                        name: 'METROSAFECTACIONFONDO'
+                                    }]
+                            }, {
+                                columnWidth: .5,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Ochava reglamentaria',
+                                        name: 'OCHAVA'
+                                    }, {
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Metros lineales ochava',
+                                        name: 'METROSOCHAVA'
+                                    }]
+                            }]
                     });
                     return form;
                 },
@@ -449,8 +481,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.serviciosParcelaFields(options)
                     });
@@ -536,8 +567,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.datosEdificacionFields(options)
                     });
@@ -631,8 +661,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.valuacionFields(options)
                     });
@@ -674,8 +703,7 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%',
-                            readOnly: true
+                            anchor: '95%'
                         },
                         items: this.informacionAdicionalFields(options)
                     });
@@ -688,98 +716,6 @@
             //Main App Init
             domain.Panel = {
                 init: function () {
-
-                    var panelDatosPropietario = new Ext.Panel({
-                        title: 'Datos propietario',
-                        collapsed: true,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10x;',
-                        //height: 200,
-                        border: false,
-                        collapsible: true,
-                        titleCollapse: true,
-                        items: domain.objects.propietarioForm({})
-                    });
-                    var panelUnidadCastral = new Ext.Panel({
-                        title: 'Unidad Catastral',
-                        collapsed: true,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10x;',
-                        //height: 200,
-                        border: false,
-                        collapsible: true,
-                        titleCollapse: true,
-                        items: [{
-                                xtype: 'tabpanel',
-                                border: false,
-                                region: 'center',
-                                activeTab: 0,
-                                items: [{
-                                        title: 'Datos de ubicación',
-                                        items: domain.objects.ubicacionParcelaForm({})
-                                    }, {
-                                        title: 'Datos grales. parcela',
-                                        items: domain.objects.parcelaForm({})
-                                    }, {
-                                        title: 'Datos físicos',
-                                        xtype: 'tabpanel',
-                                        border: false,
-                                        region: 'center',
-                                        activeTab: 0,
-                                        items: [{
-                                                title: 'Según mensura',
-                                                items: domain.objects.datosFisicosMensuraForm({})
-                                            }, {
-                                                title: 'Según escritura',
-                                                items: domain.objects.datosFisicosEscrituraForm({})
-                                            }, {
-                                                title: 'En campo',
-                                                items: domain.objects.datosFisicosCampoForm({})
-                                            }]
-                                    }, {
-                                        title: 'Restricciones dominio',
-                                        items: domain.objects.restricionesDominioForm({})
-                                    }, {
-                                        title: 'Servicios en la parcela',
-                                        items: domain.objects.serviciosParcelaForm({})
-                                    }]
-
-                            }]
-                    });
-                    var panelEdificacion = new Ext.Panel({
-                        title: 'Edificación',
-                        collapsed: true,
-                        autoHeight: true,                
-                        bodyStyle: 'padding:10x;',
-                        //height: 200,
-                        border: false,
-                        collapsible: true,
-                        titleCollapse: true,
-                        items: domain.objects.datosEdificacionForm({})
-                    });
-                    var panelValucion = new Ext.Panel({
-                        title: 'Valuación',
-                        collapsed: true,
-                        autoHeight: true,                        
-                        bodyStyle: 'padding:10x;',
-                        //height: 200,
-                        border: false,
-                        collapsible: true,
-                        titleCollapse: true,
-                        items: domain.objects.valuacionForm({})
-                    });
-                    var panelInformacionAdicional = new Ext.Panel({
-                        title: 'Información adicional',
-                        collapsed: true,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10x;',
-                        //height: 200,
-                        border: false,
-                        collapsible: true,
-                        titleCollapse: true,
-                        items: domain.objects.informacionAdicionalForm({})
-                    });
-
                     var mapa = new Ext.Panel({
                         title: 'Mapa',
                         region: 'center',
@@ -793,8 +729,100 @@
                         split: true,
                         collapsible: true,
                         width: 700,
-                        //layout: 'fit',
-                        items: [panelDatosPropietario, panelUnidadCastral, panelEdificacion, panelValucion, panelInformacionAdicional]
+                        //layout: 'fit',                        
+                        items: [{
+                                xtype: 'panel',
+                                title: 'Datos propietario',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: domain.objects.propietarioForm({})
+                            }, {
+                                xtype: 'panel',
+                                title: 'Unidad Catastral',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: [{
+                                        xtype: 'tabpanel',
+                                        border: false,
+                                        region: 'center',
+                                        activeTab: 0,
+                                        items: [{
+                                                title: 'Datos de ubicación',
+                                                items: domain.objects.ubicacionParcelaForm({})
+                                            }, {
+                                                title: 'Datos grales. parcela',
+                                                items: domain.objects.parcelaForm({})
+                                            }, {
+                                                title: 'Datos físicos',
+                                                xtype: 'tabpanel',
+                                                border: false,
+                                                //autoHeight: true,
+                                                region: 'center',
+                                                activeTab: 0,
+                                                items: [{
+                                                        title: 'Según mensura',
+                                                        items: domain.objects.datosFisicosMensuraForm({})
+                                                    }, {
+                                                        title: 'Según escritura',
+                                                        items: domain.objects.datosFisicosEscrituraForm({})
+                                                    }, {
+                                                        title: 'En campo',
+                                                        items: domain.objects.datosFisicosCampoForm({})
+                                                    }]
+                                            }, {
+                                                title: 'Restricciones dominio',
+                                                items: domain.objects.restricionesDominioForm({})
+                                            }, {
+                                                title: 'Servicios en la parcela',
+                                                items: domain.objects.serviciosParcelaForm({})
+                                            }]
+
+                                    }]
+                            }, {
+                                xtype: 'panel',
+                                title: 'Edificación',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: domain.objects.datosEdificacionForm({})
+                            }, {
+                                xtype: 'panel',
+                                title: 'Valuación',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: domain.objects.valuacionForm({})
+                            }, {
+                                xtype: 'panel',
+                                title: 'Información adicional',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: domain.objects.informacionAdicionalForm({})
+                            }]
+
                     });
 
                     new Ext.Viewport({
