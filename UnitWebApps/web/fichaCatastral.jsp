@@ -62,7 +62,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -133,7 +133,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -188,7 +188,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -226,7 +226,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -264,7 +264,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -334,8 +334,10 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        //labelWidth: 170,
                         waitTitle: 'Procesando...',
+                        layout:'form',
+                        labelAlign: 'top',
                         defaults: {
                             msgTarget: 'side',
                             anchor: '95%'
@@ -385,7 +387,7 @@
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:5px 5px 0',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         //items: this.restricionesDominioFields(options)
                         layout: 'column',
@@ -477,7 +479,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -563,7 +565,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -657,7 +659,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -699,7 +701,7 @@
                         frame: false,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
-                        labelWidth: 100,
+                        labelWidth: 150,
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
@@ -729,6 +731,7 @@
                         split: true,
                         collapsible: true,
                         width: 700,
+                        autoScroll: true,
                         //layout: 'fit',                        
                         items: [{
                                 xtype: 'panel',
@@ -766,7 +769,7 @@
                                                 title: 'Datos físicos',
                                                 xtype: 'tabpanel',
                                                 border: false,
-                                                //autoHeight: true,
+                                                autoHeight: true,
                                                 region: 'center',
                                                 activeTab: 0,
                                                 items: [{
