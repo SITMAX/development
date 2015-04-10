@@ -13,49 +13,116 @@
             };
 
             domain.objects = {
+                /*Campos para formulario de Identificacion parcela*/
+                identificacionParcelaFields: function (options) {
+                    return [{
+                            xtype: 'textfield',
+                            fieldLabel: 'Código catastral',
+                            name: 'CODIGOACATASTRAL'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Padrón vigente',
+                            name: 'PADRONVIGENTE'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. Parcela',
+                            name: 'NROPARCELA'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Tipo predio',
+                            name: 'TIPOPREDIO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Superficie',
+                            name: 'SUPERFICIE'
+                        }];
+                },
+                /*Formulario para bloque de Identificacion parcela*/
+                identificacionParcelaForm: function (options) {
+                    var form = new Ext.FormPanel({
+                        frame: false,
+                        autoHeight: true,
+                        bodyStyle: 'padding:10px',
+                        labelWidth: 150,
+                        waitTitle: 'Procesando...',
+                        defaults: {
+                            msgTarget: 'side',
+                            anchor: '95%'
+                        },
+                        items: this.identificacionParcelaFields(options)
+                    });
+                    return form;
+                },
+                /*Campos para formulario de Direccion parcela*/
+                direccionParcelaFields: function (options) {
+                    return [{
+                            xtype: 'textfield',
+                            fieldLabel: 'Avenida/calle',
+                            name: 'CALLE'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. piso',
+                            name: 'NROPISO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. Departamento',
+                            name: 'NRODEPARTAMENTO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Zona',
+                            name: 'ZONA'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. portal',
+                            name: 'NROPORTAL'
+                        }];
+                },
+                /*Formulario para bloque de Direccion parcela*/
+                direccionParcelaForm: function (options) {
+
+                    var form = new Ext.FormPanel({
+                        frame: false,
+                        autoHeight: true,
+                        bodyStyle: 'padding:10px',
+                        labelWidth: 150,
+                        waitTitle: 'Procesando...',
+                        defaults: {
+                            msgTarget: 'side',
+                            anchor: '95%'
+                        },
+                        items: this.direccionParcelaFields(options)
+                    });
+                    return form;
+                },
+                /*Campos para formulario de Datos de propietario o Titular*/
                 propietarioFields: function (options) {
                     return [{
+                            xtype: 'textfield',
+                            fieldLabel: 'Nombre completo o Razón social',
+                            name: 'NOMBRECOMPLETO'
+                        }, {
                             xtype: 'textfield',
                             fieldLabel: 'Tipo titular',
                             name: 'TIPOTITULAR'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Nombre completo',
-                            name: 'NOMBRE'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Tipo documento',
-                            name: 'TIPODOCUMENTO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'representante',
+                            fieldLabel: 'Representante',
                             name: 'REPRESENTANTE'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Tipo dominio',
-                            name: 'TIPO DOMINIO'
+                            fieldLabel: 'Tipo de documento',
+                            name: 'TIPODOCUMENTO'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Forma adquisición',
-                            name: 'FORMAADQUISICION'
+                            fieldLabel: 'Nro. de documento',
+                            name: 'NRODOCUMENTO'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Porcentaje tenencia',
-                            name: 'PORCENTAJETENENCIA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Dominio',
-                            name: 'DOMINIO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Documento relacionado',
-                            name: 'DOCUMENTORELACIONADO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Domicilio Reparto',
-                            name: 'DOMICILIOREPARTO'
+                            fieldLabel: 'Sexo',
+                            name: 'SEXO'
                         }];
                 },
+                /*Formulario para bloque de Datos de propietario o Titular*/
                 propietarioForm: function (options) {
 
                     var form = new Ext.FormPanel({
@@ -83,48 +150,80 @@
                             name: 'COORDENADAY'
                         }, {
                             xtype: 'textfield',
+                            fieldLabel: 'Padron vigente',
+                            name: 'PADRONVIGENTE2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Padron anterior',
+                            name: 'PADRONANTERIOR2'
+                        }, {
+                            xtype: 'textfield',
                             fieldLabel: 'Nro. parcela provincial',
-                            name: 'NROPARCELAPROV'
+                            name: 'NROPARCELAPROV2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. partida provincial',
+                            name: 'NROPARTIDAPROV2'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Nro. manzana',
-                            name: 'NROMANZANA'
+                            name: 'NROMANZANA2'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Nro. parcela',
-                            name: 'NROPARCELA'
+                            name: 'NROPARCELA2'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Nro. Subparcela',
-                            name: 'NROSUBPARCELA'
+                            fieldLabel: 'Nro. subparcela',
+                            name: 'NROSUBPARCELA2'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Nro. unidad',
-                            name: 'NROUNIDAD'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Nro. portal',
-                            name: 'NROPORTAL'
+                            name: 'NROUNIDAD2'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Nombre calle',
-                            name: 'NOMBRECALLE'
+                            name: 'NOMBRECALLE2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Zona',
+                            name: 'ZONA2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. portal',
+                            name: 'NROPORTAL2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. piso',
+                            name: 'NROPISO2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. departamento',
+                            name: 'NRODEPARTAMENTO2'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Cod. calle s/nomenclador',
-                            name: 'CODCALLE'
+                            name: 'CODCALLE2'
                         }, {
                             xtype: 'textfield',
                             fieldLabel: 'Cod. calle ordenanza',
                             name: 'CODCALLEORDENANZA'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Padron vigente',
-                            name: 'PADRONVIGENTE'
+                            fieldLabel: 'Afectaciones',
+                            name: 'AFECTACIONES2'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Padron anterior',
-                            name: 'PADRONANTERIOR'
+                            fieldLabel: 'Ordenanza',
+                            name: 'ORDENANZA2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Mts. de afectación',
+                            name: 'MTSAFECTACION2'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Superficie',
+                            name: 'SUPERFICIE2'
                         }];
                 },
                 ubicacionParcelaForm: function (options) {
@@ -154,7 +253,7 @@
                             name: 'NROLOTE'
                         }, {
                             xtype: 'textfield',
-                            fieldLabel: 'Visado mensura',
+                            fieldLabel: 'Visado mensura o Certificado de límite',
                             name: 'VISADO'
                         }, {
                             xtype: 'textfield',
@@ -180,6 +279,10 @@
                             xtype: 'textfield',
                             fieldLabel: 'Salida mas de una calle',
                             name: 'SALIDA'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nivel',
+                            name: 'NIVEL'
                         }];
                 },
                 parcelaForm: function (options) {
@@ -195,6 +298,61 @@
                             anchor: '95%'
                         },
                         items: this.parcelaFields(options)
+                    });
+                    return form;
+                },
+                titularesFields: function (options) {
+                    return [{
+                            xtype: 'textfield',
+                            fieldLabel: 'Tomo',
+                            name: 'TOMO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Folio',
+                            name: 'FOLIO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Nro. de inscripción',
+                            name: 'NROINSCRIPCION'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Fecha de adquisición',
+                            name: 'FECHAADQUISICION'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Tipo de dominio',
+                            name: 'TIPODOMINIO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Porcentaje de tenencia',
+                            name: 'PORCENTAJETENENCIA'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Forma de adquisición',
+                            name: 'FORMAADQUISICION'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Domicilio reparto',
+                            name: 'DOMICILIOREPARTO'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Documentación jurídica relacionada',
+                            name: 'DOCUMENTACIONJURIDICA'
+                        }];
+                },
+                titularesForm: function (options) {
+
+                    var form = new Ext.FormPanel({
+                        frame: false,
+                        autoHeight: true,
+                        bodyStyle: 'padding:10px',
+                        labelWidth: 150,
+                        waitTitle: 'Procesando...',
+                        defaults: {
+                            msgTarget: 'side',
+                            anchor: '95%'
+                        },
+                        items: this.titularesFields(options)
                     });
                     return form;
                 },
@@ -336,7 +494,7 @@
                         bodyStyle: 'padding:10px',
                         //labelWidth: 170,
                         waitTitle: 'Procesando...',
-                        layout:'form',
+                        layout: 'form',
                         labelAlign: 'top',
                         defaults: {
                             msgTarget: 'side',
@@ -735,7 +893,29 @@
                         //layout: 'fit',                        
                         items: [{
                                 xtype: 'panel',
-                                title: 'Datos propietario',
+                                title: 'Identificación de la parcela',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: domain.objects.identificacionParcelaForm({})
+                            }, {
+                                xtype: 'panel',
+                                title: 'Dirección de la parcela',
+                                collapsed: true,
+                                autoHeight: true,
+                                bodyStyle: 'padding:10x;',
+                                //height: 200,
+                                border: false,
+                                collapsible: true,
+                                titleCollapse: true,
+                                items: domain.objects.direccionParcelaForm({})
+                            }, {
+                                xtype: 'panel',
+                                title: 'Datos de propietario o titular',
                                 collapsed: true,
                                 autoHeight: true,
                                 bodyStyle: 'padding:10x;',
@@ -746,7 +926,7 @@
                                 items: domain.objects.propietarioForm({})
                             }, {
                                 xtype: 'panel',
-                                title: 'Unidad Catastral',
+                                title: 'Datos catastrales',
                                 collapsed: true,
                                 autoHeight: true,
                                 bodyStyle: 'padding:10x;',
@@ -766,6 +946,9 @@
                                                 title: 'Datos grales. parcela',
                                                 items: domain.objects.parcelaForm({})
                                             }, {
+                                                title: 'Reporte de titularidad',
+                                                items: domain.objects.titularesForm({})
+                                            },{
                                                 title: 'Datos físicos',
                                                 xtype: 'tabpanel',
                                                 border: false,
@@ -793,7 +976,7 @@
                                     }]
                             }, {
                                 xtype: 'panel',
-                                title: 'Edificación',
+                                title: 'Edificaciones',
                                 collapsed: true,
                                 autoHeight: true,
                                 bodyStyle: 'padding:10x;',
