@@ -35,14 +35,24 @@
                         },
                         items: [{
                                 xtype: 'textfield',
-                                fieldLabel: 'Nombre',
+                                fieldLabel: 'Codigo',
                                 allowBlank: false,
+                                name: 'codigo'
+                            }, {
+                                xtype: 'textfield',
+                                fieldLabel: 'Nombre',
+                                allowBlank: true,
                                 name: 'nombre'
                             }, {
                                 xtype: 'textfield',
                                 fieldLabel: 'Apellido',
                                 allowBlank: false,
                                 name: 'apellido'
+                            }, {
+                                xtype: 'textfield',
+                                fieldLabel: 'CI',
+                                allowBlank: false,
+                                name: 'ci'
                             }]
                     });
 
@@ -97,7 +107,8 @@
                             {name: 'id'},
                             {name: 'nombre'},
                             {name: 'codigo'},
-                            {name: 'apellido', mapping: 'apellido'}
+                            {name: 'apellido', mapping: 'apellido'},
+                            {name: 'ci'}
                         ],
                         autoLoad: true
                     });
@@ -106,13 +117,15 @@
                         title: 'Productos',
                         region: 'center',
                         loadMask: true,
+                        height: 200,
                         selModel: new Ext.grid.RowSelectionModel({singleSelect: true}),
                         columns: [new Ext.grid.RowNumberer({
                                 width: 27
                             }),
                             {header: "Código", width: 100, sortable: true, dataIndex: 'codigo'},
                             {header: "Nombre", width: 300, sortable: true, dataIndex: 'nombre'},
-                            {header: "Apellido", width: 100, sortable: true, dataIndex: 'apellido'}
+                            {header: "Apellido", width: 100, sortable: true, dataIndex: 'apellido'},
+                            {header: "CI", width: 100, sortable: true, dataIndex: 'ci'}
                         ],
                         store: store,
                         tbar: [{
@@ -217,7 +230,7 @@
                         collapsible: true,
                         width: 700,
                         autoScroll: true,
-                        //layout: 'fit',                        
+                        layout: 'fit',                        
                         items: [grid]
                     });
 

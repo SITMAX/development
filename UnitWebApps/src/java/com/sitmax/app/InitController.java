@@ -7,7 +7,7 @@ package com.sitmax.app;
 
 /**
  *
- * @author Cristian
+ * @author John Castillo
  */
 public class InitController {
     
