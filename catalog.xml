@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://10.20.12.26:8080/simgeiWS/ActorWebServiceBean?wsdl" uri="xml-resources/web-service-references/ActorWebServiceBean_1/wsdl/10.20.12.26_8080/simgeiWS/ActorWebServiceBean.wsdl"/>
+</catalog>
