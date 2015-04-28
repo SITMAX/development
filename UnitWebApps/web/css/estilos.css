@@ -1,0 +1,601 @@
+html
+{
+    background-color:black;
+    font-family: Helvetica, "Helvetica Neue, Arial", sans-serif;
+    color:white;
+}
+
+body {
+    font-size:14px;
+    color:white;
+    width:auto;
+    height:auto;
+}
+
+@font-face
+{
+    font-family:NuevaFuente;
+    src:url("/fonts/Utusi Star Bold.ttf"), url("/fonts/Utusi Star Bold.eot");
+}
+
+h1, h3
+{
+    color:white;
+}
+
+h2
+{
+    color:#ff6a00;
+}
+
+#contenedor
+{
+  margin: 0 auto 0 auto;
+  width: 700px;
+  background-color:black;
+  padding:5px;
+}
+
+#prueba /* Selector ID */
+{
+    font-family:NuevaFuente, Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    width:680px;
+}
+
+#derecha
+{
+    text-align:right;
+}
+
+.centro
+{
+    text-align:center;
+}
+
+.justificado
+{
+    text-align:justify;
+}
+
+#alineaciones h2
+{
+    color:#ff6a00;
+}
+
+#alineaciones p
+{
+    width:680px;
+}
+
+.colores
+{
+    width:600px;
+    line-height:20px;
+    border-color:white;
+    border-width:5px;
+    text-align:center;
+    font-weight:bolder;
+    border-style:solid;
+}
+
+#negro
+{
+    background-color:black;
+}
+
+#plata
+{
+    background-color:silver;
+}
+
+#gris
+{
+    background-color:gray;
+}
+
+#marron
+{
+    background-color:maroon;
+}
+
+#rojo
+{
+    background-color:red;
+}
+
+#morado
+{
+    background-color:purple;
+}
+
+#fucsia
+{
+    background-color:fuchsia;
+}
+
+#verde
+{
+    background-color:green;
+}
+
+#limon
+{
+    background-color:lime;
+}
+
+#aceituna
+{
+    background-color:olive;
+}
+
+#amarillo
+{
+    background-color:yellow;
+}
+
+#marino
+{
+    background-color:navy;
+}
+
+#azul
+{
+    background-color:blue;
+}
+
+#turquesa
+{
+    background-color:teal;
+}
+
+#aqua
+{
+    background-color:aqua;
+}
+
+#blanco
+{
+    background-color:white;
+    color:black;
+    border-color:gray;
+}
+
+.flotar_derecha 
+{
+    float:right;
+    padding:10px;
+}
+
+.flotar_izquierda
+{
+    float:left;
+    padding:10px;
+}
+
+#mini_bobba
+{
+    width:135px;
+    height:135px;
+}
+
+#mini_trooper
+{
+    width:135px;
+    height:135px;
+}
+
+#fondo, #flama
+{
+    border-style:solid;
+    border-color:white;
+}
+
+.img_link
+{
+    margin-left: 150px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.circulo
+{
+    list-style-type:circle;
+}
+
+.disco
+{
+    list-style-type:disc;
+}
+
+.cuadro
+{
+    list-style-type:square;
+}
+
+.img_bullet
+{
+    list-style-image:url("./image/button-orange.png");
+}
+
+.armenio 
+{
+    list-style-type:armenian;
+}
+
+.ideografico 
+{
+    list-style-type:cjk-ideographic;
+}
+
+.decimal 
+{
+    list-style-type:decimal;
+}
+
+.cero 
+{
+    list-style-type:decimal-leading-zero;
+}
+
+.georgiano 
+{
+    list-style-type:georgian;
+}
+
+.hebreo 
+{
+    list-style-type:hebrew;
+}
+
+.hiragana 
+{
+    list-style-type:hiragana;
+}
+
+.hiragana_iroha 
+{
+    list-style-type:hiragana-iroha;
+}
+
+.katakana 
+{
+    list-style-type:katakana;
+}
+
+.katakana_iroha 
+{
+    list-style-type:katakana-iroha;
+}
+
+.alfa 
+{
+    list-style-type:lower-alpha;
+}
+
+.griego 
+{
+    list-style-type:lower-greek;
+}
+
+.latin 
+{
+    list-style-type:lower-latin;
+}
+
+.romano 
+{
+    list-style-type:lower-roman;
+}
+
+.alfa_m 
+{
+    list-style-type:upper-alpha;
+}
+
+.latin_m 
+{
+    list-style-type:upper-latin;
+}
+
+.romano_m 
+{
+    list-style-type:upper-roman;
+}
+
+.no_bullet
+{
+    list-style-type:none;
+}
+
+.no_bullet li
+{
+    float:left;
+    width:150px;
+    background-color:#2f2f2f;
+    text-align:center;
+    margin:5px;
+    border-radius:10px;
+    border-bottom-style:outset;
+}
+
+.no_bullet li a
+{
+    text-decoration:none;
+    outline:none;
+}
+
+.no_bullet li a:hover
+{
+    text-decoration:none;
+    outline:none;
+    color:white;
+}
+
+.no_bullet li:hover
+{
+    background-color:#656464;
+}
+
+dt
+{
+    font-weight:bold;
+}
+
+dd
+{
+    text-align:justify;
+}
+
+table
+{
+    border-collapse:collapse;
+}
+
+.tabla_centrada
+{
+  width:500px;
+  margin: 10px auto 20px auto;
+  padding:5px;
+  border-width:2px;
+  border-color:white;
+  border-style:double;
+  border-collapse:separate;
+  border-spacing:5px 10px;
+  background-color:#2d2c2c;
+}
+
+.tabla_derecha
+{
+  margin: 20px 0 10px auto;
+  padding:5px;
+  border-width:2px;
+  border-color:white;
+  border-style:double;
+}
+
+th, td
+{
+    border-width:1px;
+    border-color:gray;
+    border-style:groove;
+    padding:5px;
+}
+
+.tabla_centrada th
+{
+    background-color:gray;
+}
+
+.fondo_negro
+{
+    background-color:black;
+}
+
+caption
+{
+    font-style:oblique;
+    font-weight:bolder;
+    margin-bottom:10px;
+}
+
+details
+{
+    font-style:normal;
+    font-weight:normal;
+}
+
+summary
+{
+    font-size:xx-small;
+    font-weight:bold;
+}
+
+.img_background
+{
+    background-image:url("image/fondo.png");
+    color:#f1b607;
+}
+
+.img_background2
+{
+    background-image:url("image/pino.png");
+    color:#ff6a00;
+}
+
+.botones
+{
+    text-align:center;
+}
+
+form
+{
+    width:375px;
+    margin: 0 auto;
+    display: block;
+}
+
+input, textarea, select
+{
+    width:325px;
+    height:15px;
+    background: #efefef;
+    border: 1px solid #dedede;
+    padding: 10px;
+    float:left;
+    margin: 5px;
+    font-size: 0.9em;
+    border-radius: 2px;
+    display: block;
+}
+
+select
+{
+    width:350px;
+    height:40px;
+}
+
+
+textarea
+{
+    height:50px;
+}
+
+input:focus, textarea:focus {
+	border-width:3px;
+    border-style:solid;
+    border-color:#fffb00;
+	display: block;
+}
+
+label
+{
+    float:left;
+    margin:5px;
+    letter-spacing: 2px;
+    width:50%
+}
+
+legend
+{
+    font-weight:bolder;
+}
+
+p.nota
+{
+    font-size:xx-small;
+    font-weight:bolder;
+}
+
+fieldset p
+{
+    text-decoration:underline;
+}
+
+fieldset
+{
+    border-top:2px solid gray;
+    border-bottom:none;
+    border-left:none;
+    border-right:none;
+    width:350px;
+}
+
+.form_table table, th, td
+{
+    border:none;
+    vertical-align:middle;
+}
+
+.celda_centrada
+{
+    text-align:center;
+    vertical-align:middle;
+}
+
+.tabla_centrada2 /* Formulario */
+{
+    margin: 5px auto 5px auto;
+    padding:5px;
+    border:none;
+    /*background-color:#2d2c2c;*/
+    width:300px;
+    vertical-align:middle;
+}
+
+.tabla_centrada2 tr, td/* Formulario */
+{
+    width:5px;
+    margin:0;
+    padding:0;
+}
+
+input.radio, input.checkbox
+{
+    width:auto;
+    vertical-align:middle;
+    margin-top:-1px;
+}
+
+.tabla_centrada3 /* Formulario */
+{
+  margin: 10px auto 20px auto;
+}
+
+.respuesta p, a
+{
+    color:white;
+}
+
+.no_bullet_js
+{
+    list-style-type:none;
+}
+
+.no_bullet_js li
+{
+    float:left;
+    width:auto;
+    height:auto;
+    text-align:left;
+    margin:5px;
+    border-radius:5px;
+}
+
+.no_bullet_js li:hover
+{
+    border-color:gray;
+    border-style:solid;
+    border-width:3px;
+}
+
+centro_centro
+{
+    width:585px;
+    height:855px;
+    margin: auto;
+    text-align:center;
+    vertical-align:middle;
+    float:none;
+}
+
+.no_visible
+{
+    display:none;
+    width:585px;
+    height:855px;
+    text-align:center;
+    float:none;
+    margin-top:15px;
+    margin-left:70px;
+}
+
+.clear
+{
+    clear:both;
+}
+
+.no_bullet_2
+{
+    list-style-type:none;
+}
