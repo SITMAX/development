@@ -1,4 +1,0 @@
-development
-===========
-
-Products in development
