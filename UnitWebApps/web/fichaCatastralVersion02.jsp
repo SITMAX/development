@@ -1067,86 +1067,143 @@
                 },
                 valuacionFields: function (options) {
                     return [{
-                            xtype: 'textfield',
-                            fieldLabel: 'Zona inmobiliaria',
-                            name: 'ZONAINMOBILIARIA'
+                            layout: 'column',
+                            items: [{
+                                    columnWidth: .5,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Zona inmobiliaria',
+                                            name: 'ZONAINMOBILIARIA',
+                                            anchor: '95%'
+                                        }]
+                                }, {
+                                    columnWidth: .5,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Zona inmobiliaria anterior',
+                                            name: 'ZONAINMOBILIARIAANTERIOR',
+                                            anchor: '95%'
+                                        }]
+                                }]
                         }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Zona inmobiliaria anterior',
-                            name: 'ZONAINMOBILIARIAANTERIOR'
+                            layout: 'column',
+                            items: [{
+                                    columnWidth: .25,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Valor m2 terreno en zona',
+                                            name: 'VALORTERRENOZONA',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Valor inmobiliario muni.',
+                                            name: 'VALORMUNICIPAL',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Costo total servicio',
+                                            name: 'COSTOSERVICIO',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Exención por baldío',
+                                            name: 'EXENCIONBALDIO',
+                                            anchor: '95%'
+                                        }]
+                                }, {
+                                    columnWidth: .25,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Valor del terreno',
+                                            name: 'VALORTERRENO',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Coef. infraestructura serv.',
+                                            name: 'COEFINFRAESTRUCTURA',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Fecha desde',
+                                            name: 'FECHADESDE',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Fecha exento',
+                                            name: 'FECHAEXENTO',
+                                            anchor: '95%'
+                                        }]
+                                }, {
+                                    columnWidth: .25,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Valor m2 de edificación',
+                                            name: 'VALORM2EDIFICACION',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Valor catastral municipal',
+                                            name: 'VALORCATASTRALMUNICIPAL',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Fecha hasta',
+                                            name: 'FECHAHASTA',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Categoría',
+                                            name: 'CATEGORIA',
+                                            anchor: '95%'
+                                        }]
+                                }, {
+                                    columnWidth: .25,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Valor mejora edificada',
+                                            name: 'VALORMEJORAEDIFICADA',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Avalúo fiscal municipal',
+                                            name: 'AVALUOFISCALMUNICIAPAL',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Tipo valuación',
+                                            name: 'TIPOVALUACION',
+                                            anchor: '95%'
+                                        }, {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Depreciación por antigüedad',
+                                            name: 'DEPRECIACION',
+                                            anchor: '95%'
+                                        }]
+                                }]
                         }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Valor M2 de terreno en zona inmobiliaria',
-                            name: 'VALORMETROZONA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Valor del terreno',
-                            name: 'VALORTERENO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Valor M2 de edificación',
-                            name: 'VALORMETROEDIFICACION'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Valor mejora edificada',
-                            name: 'VALORMEJORAEDIFICADA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Valor inmobiliario municipal',
-                            name: 'VALORINMOBILIARIOMUNICIPAL'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Coeficiente de infraestructura de servicios',
-                            name: 'COEFICIENTEINFRAESTRUCTURA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Valor catastral municipal',
-                            name: 'VALORCATASTRALMUNICIPAL'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Avalúo fiscal municipal',
-                            name: 'AVALUOFISCAL'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Costo total del servicio',
-                            name: 'COSTOTOTALSERVICIO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Fecha desde',
-                            name: 'FECHADESDE'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Fecha hasta',
-                            name: 'FECHAHASTA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Tipo de valuación',
-                            name: 'TIPOVALUACION'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Exención sobretasa por baldío',
-                            name: 'EXENCIONSOBRETASA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Fecha exento',
-                            name: 'FECHAEXENTO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Categoría',
-                            name: 'CATEGORIA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Depreciación por antiguedad',
-                            name: 'DEPRECIACIONANTIGUEDAD'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Porcentaje de inundación',
-                            name: 'PORCENTAJEINUNDACION'
+                            layout: 'column',
+                            items: [{
+                                    columnWidth: .25,
+                                    layout: 'form',
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Porcentaje de inundación',
+                                            name: 'PORCENTAJEINUNDACION',
+                                            anchor: '95%'
+                                        }]
+                                }]
                         }];
                 },
                 valuacionForm: function (options) {
                     var form = new Ext.FormPanel({
-                        frame: false,
+                        labelAlign: 'top',
+                        frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
                         labelWidth: 150,
@@ -1242,6 +1299,143 @@
                         store: store
                     });
                     return gridPropietarios;
+                }, gridEdificaciones: function (options) {
+                    //Arreglo bidimensional de datos
+                    var myData = [
+                        ['Edificación 01', 'Privado', 'Familiar', 'No', '11111111'],
+                        ['Edificación 02', 'Privado', 'Comercial', 'No', '22222222'],
+                        ['Edificación 03', 'Privado', 'Comercial', 'No', '33333333'],
+                        ['Edificación 04', 'Municipal', 'Comercial', 'No', '4444444']
+                    ];
+                    //creando el repositorio de datos
+                    var store = new Ext.data.ArrayStore({
+                        fields: [
+                            {name: 'edificacion'},
+                            {name: 'destino'},
+                            {name: 'usodestino'},
+                            {name: 'baldio'},
+                            {name: 'nroLegajoObra'}
+                        ]
+                    });
+                    store.loadData(myData);
+                    //Creando el objeto Ext.grid.GridPanel
+                    var gridEdificaciones = new Ext.grid.GridPanel({
+                        //title: 'Propietarios',
+                        //region: 'center',
+                        //collapsible: true,                        
+                        loadMask: true,
+                        columns: [new Ext.grid.RowNumberer({
+                                width: 27
+                            }),
+                            {header: "Edificación", width: 200, sortable: true, dataIndex: 'edificacion'},
+                            {header: "Destino", width: 80, sortable: true, dataIndex: 'destino'},
+                            {header: "Uso destino", width: 80, sortable: true, dataIndex: 'usodestino'},
+                            {header: "Baldío", width: 80, sortable: true, dataIndex: 'baldio'},
+                            {header: "Nro. Legajo de obra", width: 190, sortable: true, dataIndex: 'nroLegajoObra'}
+                        ],
+                        stripeRows: true,
+                        //height: 250,
+                        autoHeight: true,
+                        //width: 600,
+                        autoWidth: true,
+                        store: store
+                    });
+                    return gridEdificaciones;
+                }, gridExpedientes: function (options) {
+                    //Arreglo bidimensional de datos
+                    var myData = [
+                        ['Expediente 01', 'Nombre documento 01'],
+                        ['Expediente 02', 'Nombre documento 02'],
+                        ['Expediente 03', 'Nombre documento 03'],
+                        ['Expediente 04', 'Nombre documento 04'],
+                        ['Expediente 05', 'Nombre documento 05'],
+                        ['Expediente 06', 'Nombre documento 06'],
+                        ['Expediente 07', 'Nombre documento 07'],
+                        ['Expediente 08', 'Nombre documento 08']
+                    ];
+                    //creando el repositorio de datos
+                    var store = new Ext.data.ArrayStore({
+                        fields: [
+                            {name: 'expediente'},
+                            {name: 'documento'}
+                        ]
+                    });
+                    store.loadData(myData);
+                    //Creando el objeto Ext.grid.GridPanel
+                    var gridExpedientes = new Ext.grid.GridPanel({
+                        //title: 'Propietarios',
+                        //region: 'center',
+                        //collapsible: true,                        
+                        loadMask: true,
+                        columns: [new Ext.grid.RowNumberer({
+                                width: 27
+                            }),
+                            {header: "Expediente", width: 200, sortable: true, dataIndex: 'expediente'},
+                            {header: "Documento", width: 200, sortable: true, dataIndex: 'documento'}
+                        ],
+                        stripeRows: true,
+                        //height: 250,
+                        autoHeight: true,
+                        //width: 600,
+                        autoWidth: true,
+                        store: store
+                    });
+                    return gridExpedientes;
+                }, gridVigencias: function (options) {
+                    //Arreglo bidimensional de datos
+                    var myData = [
+                        ['Vigencia 01', '12/03/2003'],
+                        ['Vigencia 02', '17/09/2014'],
+                        ['Vigencia 03', '31/12/2014'],
+                        ['Vigencia 04', '01/05/2015']
+                    ];
+                    //creando el repositorio de datos
+                    var store = new Ext.data.ArrayStore({
+                        fields: [
+                            {name: 'vigencia'},
+                            {name: 'fecha'}
+                        ]
+                    });
+                    store.loadData(myData);
+                    //Creando el objeto Ext.grid.GridPanel
+                    var gridVigencias = new Ext.grid.GridPanel({
+                        //title: 'Propietarios',
+                        //region: 'center',
+                        //collapsible: true,                        
+                        loadMask: true,
+                        columns: [new Ext.grid.RowNumberer({
+                                width: 27
+                            }),
+                            {header: "Vigencia", width: 200, sortable: true, dataIndex: 'vigencia'},
+                            {header: "Fecha", width: 80, sortable: true, dataIndex: 'fecha'}
+                        ],
+                        stripeRows: true,
+                        //height: 250,
+                        autoHeight: true,
+                        //width: 600,
+                        autoWidth: true,
+                        store: store
+                    });
+                    return gridVigencias;
+                },
+                observacionesFields: function (options) {
+                    return [{
+                            xtype: 'textarea',
+                            fieldLabel: 'Observaciones',
+                            name: 'OBSERVACIONES',
+                            anchor: '100% - 53'
+                        }];
+                },
+                observacionesForm: function (options) {
+                    var form = new Ext.FormPanel({
+                        frame: true,
+                        autoHeight: true,
+                        bodyStyle: 'padding:10px',
+                        labelWidth: 150,
+                        waitTitle: 'Procesando...',
+                        items: this.observacionesFields(options)
+                    });
+                    return form;
                 }
             };
             domain.functions = {
@@ -1365,7 +1559,7 @@
                                 border: false,
                                 collapsible: true,
                                 titleCollapse: true,
-                                items: [domain.objects.datosEdificacionForm({})
+                                items: [domain.objects.gridEdificaciones({})
                                 ]
                             }, {
                                 xtype: 'panel',
@@ -1390,9 +1584,40 @@
                                 collapsible: true,
                                 titleCollapse: true,
                                 items: [{
-                                        html: '<br><br><p>Aqui insertamos el formulario correspondiente.</p><br><br>'
-                                    }
-                                ]
+                                        xtype: 'tabpanel',
+                                        bodyStyle: 'padding:10x;',
+                                        border: false,
+                                        region: 'center',
+                                        activeTab: 0,
+                                        items: [{
+                                                title: 'Fotografía parcela',
+                                                items: [
+                                                    { html: 'Imagen'}
+                                                ]
+                                            }, {
+                                                title: 'Plano mensura',
+                                                items: [
+                                                     { html: 'Imagen'}
+                                                ]
+                                            }, {
+                                                title: 'Fichas Catastrales',
+                                                items: [
+                                                     { html: 'Imagen'}
+                                                ]
+                                            }, {
+                                                title: 'Expedientes asociados',
+                                                items: [domain.objects.gridExpedientes({})
+                                                ]
+                                            }, {
+                                                title: 'Vigencias',
+                                                items: [domain.objects.gridVigencias({})
+                                                ]
+                                            }, {
+                                                title: 'Observaciones',
+                                                items: [domain.objects.observacionesForm({})
+                                                ]
+                                            }]
+                                    }]
                             }]
                     });
                     new Ext.Viewport({
