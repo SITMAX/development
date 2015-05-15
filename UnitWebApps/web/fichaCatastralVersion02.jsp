@@ -31,51 +31,63 @@
              * @version 0.2.0
              * Ficha Catastral
              */
+            
             Ext.ns('domain');
             domain.dummyData = {
+                
             };
             domain.objects = {
                 /*Campos para formulario de Identificacion parcela*/
-                identificacionParcelaFields: function (options) {
-                    return [
-                        {
-                            layout: 'column',
-                            items: [{
-                                    columnWidth: .5,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Código Catastral',
-                                            name: 'CODIGOCATASTRAL',
-                                            anchor: '95%'
-                                        }, {
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Nro. parcela',
-                                            name: 'NROPARCELA',
-                                            anchor: '95%'
-                                        }, {
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Superficie',
-                                            name: 'SUPERFICIE',
-                                            anchor: '95%'
-                                        }]
-                                }, {
-                                    columnWidth: .5,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Padron vigente',
-                                            name: 'PADRONVIGENTE',
-                                            anchor: '95%'
-                                        }, {
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Tipo predio',
-                                            name: 'TIPOPREDIO',
-                                            anchor: '95%'
-                                        }]
-                                }]
-                        }];
-                },
+                identificacionParcelaFields: [{
+                        layout: 'column',
+                        items: [{
+                                columnWidth: .5,
+                                layout: 'form',
+                                defaults: {
+                                    anchor: '95%',
+                                    msgTarget: 'side'
+                                },
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Código catastral',
+                                        name: 'codigocatastral'
+                                    }, {
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Nro. parcela',
+                                        name: 'nro_parcela'
+                                    }, {
+                                        xtype: 'compositefield',
+                                        fieldLabel: 'Superficie',
+                                        //anchor: '-20',
+                                        defaults: {
+                                            //flex: 1
+                                        },
+                                        items: [{
+                                                xtype: 'textfield',
+                                                name: 'superficie'
+                                            }, {
+                                                xtype: 'displayfield',
+                                                value: 'm2'
+                                            }]
+                                    }]
+                            }, {
+                                columnWidth: .5,
+                                layout: 'form',
+                                defaults: {
+                                    anchor: '95%',
+                                    msgTarget: 'side'
+                                },
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Padron vigente',
+                                        name: 'padron_vigente'
+                                    }, {
+                                        xtype: 'combo',
+                                        fieldLabel: 'Tipo predio',
+                                        name: 'tipo_predio'
+                                    }]
+                            }]
+                    }],
                 /*Formulario para bloque de Identificacion parcela*/
                 identificacionParcelaForm: function (options) {
                     var form = new Ext.FormPanel({
@@ -94,54 +106,52 @@
                     return form;
                 },
                 /*Campos para formulario de Direccion parcela*/
-                direccionParcelaFields: function (options) {
-                    return [
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: 'Avenida/calle',
-                            name: 'CALLE',
-                            anchor: '93%'
-                        }, {
-                            layout: 'column',
-                            items: [{
-                                    columnWidth: .25,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Zona',
-                                            name: 'ZONA',
-                                            anchor: '95%'
-                                        }]
-                                }, {
-                                    columnWidth: .25,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Nro. piso',
-                                            name: 'NROPISO',
-                                            anchor: '95%'
-                                        }]
-                                }, {
-                                    columnWidth: .25,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Nro. departamento',
-                                            name: 'NRODEPARTAMENTO',
-                                            anchor: '95%'
-                                        }]
-                                }, {
-                                    columnWidth: .25,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Nro. portal',
-                                            name: 'NROPORTAL',
-                                            anchor: '95%'
-                                        }]
-                                }]
-                        }];
-                },
+                direccionParcelaFields: [
+                    {
+                        xtype: 'textfield',
+                        fieldLabel: 'Avenida/calle',
+                        name: 'CALLE',
+                        anchor: '93%'
+                    }, {
+                        layout: 'column',
+                        items: [{
+                                columnWidth: .25,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Zona',
+                                        name: 'ZONA',
+                                        anchor: '95%'
+                                    }]
+                            }, {
+                                columnWidth: .25,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Nro. piso',
+                                        name: 'NROPISO',
+                                        anchor: '95%'
+                                    }]
+                            }, {
+                                columnWidth: .25,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Nro. departamento',
+                                        name: 'NRODEPARTAMENTO',
+                                        anchor: '95%'
+                                    }]
+                            }, {
+                                columnWidth: .25,
+                                layout: 'form',
+                                items: [{
+                                        xtype: 'textfield',
+                                        fieldLabel: 'Nro. portal',
+                                        name: 'NROPORTAL',
+                                        anchor: '95%'
+                                    }]
+                            }]
+                    }],
                 /*Formulario para bloque de Direccion parcela*/
                 direccionParcelaForm: function (options) {
 
@@ -207,8 +217,7 @@
                 },
                 /*Campos para formulario de Datos de Ubicación parcela*/
                 ubicacionParcelaFields: function (options) {
-                    return [
-                        {
+                    return [{
                             layout: 'column',
                             items: [{
                                     columnWidth: .5,
@@ -216,7 +225,7 @@
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Coordenada eje X',
-                                            name: 'COORDENADAX',
+                                            name: 'cordenada_x',
                                             anchor: '95%'
                                         }]
                                 }, {
@@ -413,8 +422,8 @@
                 },
                 ubicacionParcelaForm: function (options) {
 
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
+                        
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -422,7 +431,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.ubicacionParcelaFields(options)
                     });
@@ -524,7 +534,7 @@
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nivel',
-                                            name: 'NIVEL',
+                                            name: 'nivel',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -532,8 +542,7 @@
                 },
                 parcelaForm: function (options) {
 
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -541,7 +550,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.parcelaFields(options)
                     });
@@ -657,8 +667,7 @@
                         }];
                 },
                 datosFisicosMensuraForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -666,7 +675,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.datosFisicosMensuraFields(options)
                     });
@@ -727,8 +737,7 @@
                         }];
                 },
                 datosFisicosEscrituraForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -736,7 +745,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.datosFisicosEscrituraFields(options)
                     });
@@ -816,8 +826,7 @@
                         }];
                 },
                 datosFisicosCampoForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -825,7 +834,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.datosFisicosCampoFields(options)
                     });
@@ -886,8 +896,7 @@
                         }];
                 },
                 restricionesDominioForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -895,7 +904,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.restricionesDominioFields(options)
                     });
@@ -964,8 +974,7 @@
                         }];
                 },
                 serviciosParcelaForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
+                    var form = new Ext.Panel({
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -973,7 +982,8 @@
                         waitTitle: 'Procesando...',
                         defaults: {
                             msgTarget: 'side',
-                            anchor: '95%'
+                            anchor: '95%',
+                            labelAlign: 'top'
                         },
                         items: this.serviciosParcelaFields(options)
                     });
@@ -1258,6 +1268,7 @@
                     });
                     return form;
                 },
+                /* Propietarios titulares */
                 gridPropietarios: function (options) {
                     //Arreglo bidimensional de datos
                     var myData = [
@@ -1278,9 +1289,10 @@
                     store.loadData(myData);
                     //Creando el objeto Ext.grid.GridPanel
                     var gridPropietarios = new Ext.grid.GridPanel({
-                        //title: 'Propietarios',
-                        //region: 'center',
-                        //collapsible: true,                        
+                        title: 'Datos de propietario o titular',
+                        autoHeight: true,
+                        collapsible: true,
+                        titleCollapse: true,
                         loadMask: true,
                         columns: [new Ext.grid.RowNumberer({
                                 width: 27
@@ -1292,14 +1304,11 @@
                             {header: "Nro. Documento", width: 90, sortable: true, dataIndex: 'nroDocumento'}
                         ],
                         stripeRows: true,
-                        //height: 250,
-                        autoHeight: true,
-                        //width: 600,
-                        autoWidth: true,
                         store: store
                     });
                     return gridPropietarios;
-                }, gridEdificaciones: function (options) {
+                },
+                gridEdificaciones: function (options) {
                     //Arreglo bidimensional de datos
                     var myData = [
                         ['Edificación 01', 'Privado', 'Familiar', 'No', '11111111'],
@@ -1320,9 +1329,11 @@
                     store.loadData(myData);
                     //Creando el objeto Ext.grid.GridPanel
                     var gridEdificaciones = new Ext.grid.GridPanel({
-                        //title: 'Propietarios',
-                        //region: 'center',
-                        //collapsible: true,                        
+                        title: 'Edificaciones',
+                        collapsed: true,
+                        autoHeight: true,
+                        collapsible: true,
+                        titleCollapse: true,
                         loadMask: true,
                         columns: [new Ext.grid.RowNumberer({
                                 width: 27
@@ -1336,12 +1347,13 @@
                         stripeRows: true,
                         //height: 250,
                         autoHeight: true,
-                        //width: 600,
-                        autoWidth: true,
+                                //width: 600,
+                                autoWidth: true,
                         store: store
                     });
                     return gridEdificaciones;
-                }, gridExpedientes: function (options) {
+                },
+                gridExpedientes: function (options) {
                     //Arreglo bidimensional de datos
                     var myData = [
                         ['Expediente 01', 'Nombre documento 01'],
@@ -1381,7 +1393,8 @@
                         store: store
                     });
                     return gridExpedientes;
-                }, gridVigencias: function (options) {
+                },
+                gridVigencias: function (options) {
                     //Arreglo bidimensional de datos
                     var myData = [
                         ['Vigencia 01', '12/03/2003'],
@@ -1436,9 +1449,131 @@
                         items: this.observacionesFields(options)
                     });
                     return form;
+                },
+                
+                unidadCatastral: function (options) {
+                    var tabPanel = {
+                        border: false,
+                        anchor: '100%',
+                        items: [{
+                                xtype: 'tabpanel',
+                                activeTab: 0,
+                                autoHeight: true,
+                                items: [{
+                                        title: 'Datos de ubicación',
+                                        items: [domain.objects.ubicacionParcelaForm({})
+                                        ]
+                                    }, {
+                                        title: 'Datos grales. parcela',
+                                        items: [domain.objects.parcelaForm({})
+                                        ]
+                                    }, {
+                                        title: 'Datos físicos',
+                                        xtype: 'tabpanel',
+                                        bodyStyle: 'padding:10x;',
+                                        border: false,
+                                        autoHeight: true,
+                                        region: 'center',
+                                        activeTab: 0,
+                                        items: [{
+                                                title: 'Según mensura',
+                                                items: [domain.objects.datosFisicosMensuraForm({})
+                                                ]
+                                            }, {
+                                                title: 'Según escritura',
+                                                items: [domain.objects.datosFisicosEscrituraForm({})
+                                                ]
+                                            }, {
+                                                title: 'En campo',
+                                                items: [domain.objects.datosFisicosCampoForm({})
+                                                ]
+                                            }]
+                                    }, {
+                                        title: 'Restricciones dominio',
+                                        items: [domain.objects.restricionesDominioForm({})
+                                        ]
+                                    }, {
+                                        title: 'Servicios en la parcela',
+                                        items: [domain.objects.serviciosParcelaForm({})
+                                        ]
+                                    }]
+
+                            }]
+                    };
+
+                    return tabPanel;
+                },
+                informacionAdicional: function (options) {
+                    var o = {
+                        xtype: 'panel',
+                        layout: 'fit',
+                        title: 'Información adicional',
+                        collapsed: true,
+                        autoHeight: true,
+                        border: false,
+                        collapsible: true,
+                        titleCollapse: true,
+                        items: [{
+                                xtype: 'tabpanel',
+                                bodyStyle: 'padding:10x;',
+                                border: false,
+                                region: 'center',
+                                activeTab: 0,
+                                items: [{
+                                        title: 'Fotografía parcela',
+                                        items: [
+                                            {html: 'Imagen'}
+                                        ]
+                                    }, {
+                                        title: 'Plano mensura',
+                                        items: [
+                                            {html: 'Imagen'}
+                                        ]
+                                    }, {
+                                        title: 'Fichas Catastrales',
+                                        items: [
+                                            {html: 'Imagen'}
+                                        ]
+                                    }, {
+                                        title: 'Expedientes asociados',
+                                        items: [domain.objects.gridExpedientes({})
+                                        ]
+                                    }, {
+                                        title: 'Vigencias',
+                                        items: [domain.objects.gridVigencias({})
+                                        ]
+                                    }, {
+                                        title: 'Observaciones',
+                                        items: [domain.objects.observacionesForm({})
+                                        ]
+                                    }]
+                            }]
+                    };
+                    return o;
                 }
             };
             domain.functions = {
+                buildViewForm: function (options) {
+                    var o = {
+                        title: options.title,
+                        titleCollapse: true,
+                        collapsed: true,
+                        border: false,
+                        collapsible: true,
+                        labelAlign: options.labelAlign,
+                        frame: true,
+                        autoHeight: true,
+                        bodyStyle: options.bodyStyle,
+                        labelWidth: 150,
+                        waitTitle: 'Procesando...',
+                        defaults: {
+                            msgTarget: 'side',
+                            anchor: '95%'
+                        },
+                        items: options.fields
+                    };
+                    return o;
+                }
             };
             //Main App Init
             domain.Panel = {
@@ -1449,177 +1584,75 @@
                         layout: 'fit',
                         items: []
                     });
+
+                    var identificacionParcelaForm = new Ext.FormPanel(domain.functions.buildViewForm({
+                        fields: domain.objects.identificacionParcelaFields,
+                        title: 'Identificación de la parcela',
+                        labelAlign: 'top',
+                        bodyStyle: 'padding:10px'
+                    }));
+                    
+                    
+                    var dumy = {
+                        codigocatastral: 'aaa',
+                        nro_parcela: '222'
+                    };
+                    
+                    identificacionParcelaForm.getForm().setValues(dumy);
+
+                    var direccionParcelaForm = new Ext.FormPanel(domain.functions.buildViewForm({
+                        fields: domain.objects.direccionParcelaFields,
+                        title: 'Dirección de la parcela',
+                        labelAlign: 'top',
+                        bodyStyle: 'padding:10px'
+                    }));
+
+                    var gridPropietarios = domain.objects.gridPropietarios({});
+
+                    var unidadCatastral = new Ext.FormPanel(domain.functions.buildViewForm({
+                        fields: domain.objects.unidadCatastral({}),
+                        title: 'Unidad catastral',
+                        labelAlign: 'top',
+                        bodyStyle: 'padding:0px'
+                    }));
+
+                    var dumyUC = {
+                        cordenada_x: 'aaa',
+                        nivel: '222'
+                    };
+                    
+                    unidadCatastral.getForm().setValues(dumyUC);
+                   
+
+                    var gridEdificaciones = domain.objects.gridEdificaciones({});
+
+                    var valuacionForm = new Ext.FormPanel(domain.functions.buildViewForm({
+                        fields: domain.objects.valuacionFields({}),
+                        title: 'Valuación',
+                        labelAlign: 'top'
+                    }));
+
+                    var informacionAdicional = domain.objects.informacionAdicional({});
+
                     var panelFicha = new Ext.Panel({
                         title: 'Ficha Catastral',
                         region: 'east',
                         split: true,
                         collapsible: true,
-                        width: 700,
+                        width: 800,
+                        minWidth: 700,
                         autoScroll: true,
-                        //layout: 'fit',                        
-                        items: [{
-                                xtype: 'panel',
-                                title: 'Identificación de la parcela',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [domain.objects.identificacionParcelaForm({})
-                                ]
-                            }, {
-                                xtype: 'panel',
-                                title: 'Dirección de la parcela',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [domain.objects.direccionParcelaForm({})
-                                ]
-                            }, {
-                                xtype: 'panel',
-                                title: 'Datos de propietario o titular',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [domain.objects.gridPropietarios({})
-                                ]
-                            }, {
-                                xtype: 'panel',
-                                title: 'Unidad catastral',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [{
-                                        xtype: 'tabpanel',
-                                        bodyStyle: 'padding:10x;',
-                                        border: false,
-                                        region: 'center',
-                                        activeTab: 0,
-                                        items: [{
-                                                title: 'Datos de ubicación',
-                                                items: [domain.objects.ubicacionParcelaForm({})
-                                                ]
-                                            }, {
-                                                title: 'Datos grales. parcela',
-                                                items: [domain.objects.parcelaForm({})
-                                                ]
-                                            }, {
-                                                title: 'Datos físicos',
-                                                xtype: 'tabpanel',
-                                                bodyStyle: 'padding:10x;',
-                                                border: false,
-                                                autoHeight: true,
-                                                region: 'center',
-                                                activeTab: 0,
-                                                items: [{
-                                                        title: 'Según mensura',
-                                                        items: [domain.objects.datosFisicosMensuraForm({})
-                                                        ]
-                                                    }, {
-                                                        title: 'Según escritura',
-                                                        items: [domain.objects.datosFisicosEscrituraForm({})
-                                                        ]
-                                                    }, {
-                                                        title: 'En campo',
-                                                        items: [domain.objects.datosFisicosCampoForm({})
-                                                        ]
-                                                    }]
-                                            }, {
-                                                title: 'Restricciones dominio',
-                                                items: [domain.objects.restricionesDominioForm({})
-                                                ]
-                                            }, {
-                                                title: 'Servicios en la parcela',
-                                                items: [domain.objects.serviciosParcelaForm({})
-                                                ]
-                                            }]
-
-                                    }]
-                            }, {
-                                xtype: 'panel',
-                                title: 'Edificaciones',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [domain.objects.gridEdificaciones({})
-                                ]
-                            }, {
-                                xtype: 'panel',
-                                title: 'Valuación',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [domain.objects.valuacionForm({})
-                                ]
-                            }, {
-                                xtype: 'panel',
-                                title: 'Información adicional',
-                                collapsed: true,
-                                autoHeight: true,
-                                bodyStyle: 'padding:10x;',
-                                //height: 200,
-                                border: false,
-                                collapsible: true,
-                                titleCollapse: true,
-                                items: [{
-                                        xtype: 'tabpanel',
-                                        bodyStyle: 'padding:10x;',
-                                        border: false,
-                                        region: 'center',
-                                        activeTab: 0,
-                                        items: [{
-                                                title: 'Fotografía parcela',
-                                                items: [
-                                                    { html: 'Imagen'}
-                                                ]
-                                            }, {
-                                                title: 'Plano mensura',
-                                                items: [
-                                                     { html: 'Imagen'}
-                                                ]
-                                            }, {
-                                                title: 'Fichas Catastrales',
-                                                items: [
-                                                     { html: 'Imagen'}
-                                                ]
-                                            }, {
-                                                title: 'Expedientes asociados',
-                                                items: [domain.objects.gridExpedientes({})
-                                                ]
-                                            }, {
-                                                title: 'Vigencias',
-                                                items: [domain.objects.gridVigencias({})
-                                                ]
-                                            }, {
-                                                title: 'Observaciones',
-                                                items: [domain.objects.observacionesForm({})
-                                                ]
-                                            }]
-                                    }]
-                            }]
+                        items: [
+                            identificacionParcelaForm,
+                            direccionParcelaForm,
+                            gridPropietarios,
+                            unidadCatastral,
+                            gridEdificaciones,
+                            valuacionForm,
+                            informacionAdicional
+                        ]
                     });
+
                     new Ext.Viewport({
                         layout: 'border',
                         items: [mapa, panelFicha]
