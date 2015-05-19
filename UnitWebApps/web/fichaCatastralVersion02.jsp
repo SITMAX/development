@@ -1581,7 +1581,8 @@
                                     }, {
                                         title: 'Fichas Catastrales',
                                         items: [
-                                            {html: '<img src="ficha-catastral.jpg" height="800" width="800" />'}
+                                            //{html: '<img src="ficha-catastral.jpg" height="800" width="800" />'}
+                                            {html: 'Insertar imagen'}
                                         ]
                                     }, {
                                         title: 'Expedientes asociados',
