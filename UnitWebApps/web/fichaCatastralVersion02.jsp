@@ -1,3 +1,8 @@
+<%-- 
+    Document   : fichaCatastralVersion03
+    Created on : 19-05-2015, 11:39:29 AM
+    Author     : RubenQuintin
+--%>
 <!DOCTYPE html>
 <html lang="es" id="sitmax">
     <head>
@@ -31,10 +36,9 @@
              * @version 0.2.0
              * Ficha Catastral
              */
-            
+
             Ext.ns('domain');
             domain.dummyData = {
-                
             };
             domain.objects = {
                 /*Campos para formulario de Identificacion parcela*/
@@ -45,6 +49,7 @@
                                 layout: 'form',
                                 defaults: {
                                     anchor: '95%',
+                                    readOnly: true,
                                     msgTarget: 'side'
                                 },
                                 items: [{
@@ -75,6 +80,7 @@
                                 layout: 'form',
                                 defaults: {
                                     anchor: '95%',
+                                    readOnly: true,
                                     msgTarget: 'side'
                                 },
                                 items: [{
@@ -88,133 +94,75 @@
                                     }]
                             }]
                     }],
-                /*Formulario para bloque de Identificacion parcela*/
-                identificacionParcelaForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
-                        frame: true,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10px',
-                        labelWidth: 150,
-                        waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%'
-                        },
-                        items: this.identificacionParcelaFields(options)
-                    });
-                    return form;
-                },
                 /*Campos para formulario de Direccion parcela*/
                 direccionParcelaFields: [
                     {
                         xtype: 'textfield',
                         fieldLabel: 'Avenida/calle',
-                        name: 'CALLE',
+                        name: 'calle',
+                        readOnly: true,
+                        msgTarget: 'side',
                         anchor: '93%'
                     }, {
                         layout: 'column',
                         items: [{
                                 columnWidth: .25,
                                 layout: 'form',
+                                defaults: {
+                                    anchor: '95%',
+                                    readOnly: true,
+                                    msgTarget: 'side'
+                                },
                                 items: [{
                                         xtype: 'textfield',
                                         fieldLabel: 'Zona',
-                                        name: 'ZONA',
+                                        name: 'zona',
                                         anchor: '95%'
                                     }]
                             }, {
                                 columnWidth: .25,
                                 layout: 'form',
+                                defaults: {
+                                    anchor: '95%',
+                                    readOnly: true,
+                                    msgTarget: 'side'
+                                },
                                 items: [{
                                         xtype: 'textfield',
                                         fieldLabel: 'Nro. piso',
-                                        name: 'NROPISO',
+                                        name: 'nro_piso',
                                         anchor: '95%'
                                     }]
                             }, {
                                 columnWidth: .25,
                                 layout: 'form',
+                                defaults: {
+                                    anchor: '95%',
+                                    readOnly: true,
+                                    msgTarget: 'side'
+                                },
                                 items: [{
                                         xtype: 'textfield',
                                         fieldLabel: 'Nro. departamento',
-                                        name: 'NRODEPARTAMENTO',
+                                        name: 'nro_departamento',
                                         anchor: '95%'
                                     }]
                             }, {
                                 columnWidth: .25,
                                 layout: 'form',
+                                defaults: {
+                                    anchor: '95%',
+                                    readOnly: true,
+                                    msgTarget: 'side'
+                                },
                                 items: [{
                                         xtype: 'textfield',
                                         fieldLabel: 'Nro. portal',
-                                        name: 'NROPORTAL',
+                                        name: 'nro_portal',
                                         anchor: '95%'
                                     }]
                             }]
                     }],
-                /*Formulario para bloque de Direccion parcela*/
-                direccionParcelaForm: function (options) {
-
-                    var form = new Ext.FormPanel({
-                        labelAlign: 'top',
-                        frame: true,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10px',
-                        labelWidth: 150,
-                        waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%'
-                        },
-                        items: this.direccionParcelaFields(options)
-                    });
-                    return form;
-                },
-                /*Campos para formulario de Datos de propietario o Titular*/
-                propietarioFields: function (options) {
-                    return [{
-                            xtype: 'textfield',
-                            fieldLabel: 'Nombre completo o Razón social',
-                            name: 'NOMBRECOMPLETO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Tipo titular',
-                            name: 'TIPOTITULAR'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Representante',
-                            name: 'REPRESENTANTE'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Tipo de documento',
-                            name: 'TIPODOCUMENTO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Nro. de documento',
-                            name: 'NRODOCUMENTO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Sexo',
-                            name: 'SEXO'
-                        }];
-                },
-                /*Formulario para bloque de Datos de propietario o Titular*/
-                propietarioForm: function (options) {
-
-                    var form = new Ext.FormPanel({
-                        frame: false,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10px',
-                        labelWidth: 150,
-                        waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%'
-                        },
-                        items: this.propietarioFields(options)
-                    });
-                    return form;
-                },
                 /*Campos para formulario de Datos de Ubicación parcela*/
                 ubicacionParcelaFields: function (options) {
                     return [{
@@ -222,19 +170,29 @@
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Coordenada eje X',
-                                            name: 'cordenada_x',
+                                            name: 'coordenada_x',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Coordenada eje Y',
-                                            name: 'COORDENADAY',
+                                            name: 'coordenada_y',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -243,37 +201,57 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. parcela provincial',
-                                            name: 'NROPARCELAPROV',
+                                            name: 'nro_parcel_prov',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. partida provincial',
-                                            name: 'NRODEPARTIDAPROV',
+                                            name: 'nro_partida_prov',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. manzana',
-                                            name: 'NROMANZANA',
+                                            name: 'nro_manzana',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. parcela',
-                                            name: 'NROPARCELA',
+                                            name: 'nro_parcela',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -282,28 +260,43 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. subparcela',
-                                            name: 'NROSUBPARCELA',
+                                            name: 'nro_subparcela',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. unidad',
-                                            name: 'NROUNIDAD',
+                                            name: 'nro_unidad',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nombre calle',
-                                            name: 'NOMCALLE',
+                                            name: 'nombre_calle',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -312,37 +305,57 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. portal',
-                                            name: 'NROPORTAL',
+                                            name: 'nro_portal',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Zona',
-                                            name: 'ZONA',
+                                            name: 'zona',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. piso',
-                                            name: 'NROPISO',
+                                            name: 'nro_piso',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. departamento',
-                                            name: 'NRODEPARTAMENTO',
+                                            name: 'nro_departamento',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -351,19 +364,29 @@
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Codigo calle sin nomenclador',
-                                            name: 'CODSINNOMENCLADOR',
+                                            name: 'cod_calle_scomenclador',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Codigo calle ordenanza',
-                                            name: 'CODCALLEORDENANZA',
+                                            name: 'cod_calle_ordenanza',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -372,19 +395,29 @@
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Padrón vigente',
-                                            name: 'PADRONVIGENTE',
+                                            name: 'padron_vigente',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Padron anterior',
-                                            name: 'PADRONANTERIOR',
+                                            name: 'padron_anterior',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -393,28 +426,43 @@
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Centro de distrito al que pertenece',
-                                            name: 'CENTRODISTRITO',
+                                            name: 'centro_distrito',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Distrito ROU',
-                                            name: 'DISTRITOROU',
+                                            name: 'distrito_rou',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Vecinal',
-                                            name: 'VECINAL',
+                                            name: 'vecinal',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -423,7 +471,6 @@
                 ubicacionParcelaForm: function (options) {
 
                     var form = new Ext.Panel({
-                        
                         frame: true,
                         autoHeight: true,
                         bodyStyle: 'padding:10px',
@@ -444,28 +491,43 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. plano mensura',
-                                            name: 'NROPLANOMENSURA',
+                                            name: 'nro_plano_mensura',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nro. lote plano mensura',
-                                            name: 'NROLOTEMENSURA',
+                                            name: 'nro_lote_mensura',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Visado mensura o Certificado de límite',
-                                            name: 'VISADOMENSURA',
+                                            name: 'visado_mensura',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -474,37 +536,57 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Fecha',
-                                            name: 'FECHA',
+                                            name: 'fecha',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Tipo regimen',
-                                            name: 'TIPOREGIMEN',
+                                            name: 'tipo_regimen',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Esquina',
-                                            name: 'ESQUINA',
+                                            name: 'esquina',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Interno',
-                                            name: 'INTERNO',
+                                            name: 'interno',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -513,24 +595,39 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Tipo pasillo',
-                                            name: 'TIPOPASILLO',
+                                            name: 'tipo_pasillo',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Salida mas de una calle',
-                                            name: 'SALIDACALLE',
+                                            name: 'salida_calle',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Nivel',
@@ -557,71 +654,21 @@
                     });
                     return form;
                 },
-                titularesFields: function (options) {
-                    return [{
-                            xtype: 'textfield',
-                            fieldLabel: 'Tomo',
-                            name: 'TOMO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Folio',
-                            name: 'FOLIO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Nro. de inscripción',
-                            name: 'NROINSCRIPCION'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Fecha de adquisición',
-                            name: 'FECHAADQUISICION'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Tipo de dominio',
-                            name: 'TIPODOMINIO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Porcentaje de tenencia',
-                            name: 'PORCENTAJETENENCIA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Forma de adquisición',
-                            name: 'FORMAADQUISICION'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Domicilio reparto',
-                            name: 'DOMICILIOREPARTO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Documentación jurídica relacionada',
-                            name: 'DOCUMENTACIONJURIDICA'
-                        }];
-                },
-                titularesForm: function (options) {
-
-                    var form = new Ext.FormPanel({
-                        frame: false,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10px',
-                        labelWidth: 150,
-                        waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%'
-                        },
-                        items: this.titularesFields(options)
-                    });
-                    return form;
-                },
                 datosFisicosMensuraFields: function (options) {
                     return [{
                             layout: 'column',
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Superficie',
-                                            name: 'SUPERFICIE',
+                                            name: 'superficie_m',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -630,37 +677,57 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medica frente',
-                                            name: 'FRENTE',
+                                            name: 'frente_m',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medida contrafrente',
-                                            name: 'CONTRAFRENTE',
+                                            name: 'contrafrente_m',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medida lado derecho',
-                                            name: 'DERECHO',
+                                            name: 'lado_derecho_m',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medida lado izquierdo',
-                                            name: 'IZQUIERDO',
+                                            name: 'lado_izquierdo_m',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -688,10 +755,15 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Superficie',
-                                            name: 'SUPERFICIE',
+                                            name: 'superficie_e',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -700,37 +772,57 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medica frente',
-                                            name: 'FRENTE',
+                                            name: 'frente_e',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medida contrafrente',
-                                            name: 'CONTRAFRENTE',
+                                            name: 'contrafrente_e',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medida lado derecho',
-                                            name: 'DERECHO',
+                                            name: 'lado_derecho_e',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Medida lado izquierdo',
-                                            name: 'IZQUIERDO',
+                                            name: 'lado_izquierdo_e',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -758,29 +850,39 @@
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Ancho de la acera frente al lote según mensura',
-                                            name: 'ANCHOACERAMENSURA',
+                                            name: 'ancho_acera_m',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Ancho de la acera frente al lote según inspección',
-                                            name: 'ANCHOACERAINSPECCION',
+                                            name: 'ancho_acera_i',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Ancho de la calzada frente al lote según mensura',
-                                            name: 'ANCHOCALZADAMENSURA',
+                                            name: 'ancho_calzada_m',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Ancho de la calzada frente al lote según inspección',
-                                            name: 'ANCHOCALZADAINSPECCION',
+                                            name: 'abcho_calzada_i',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -789,37 +891,57 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'En línea',
-                                            name: 'LINEA',
+                                            name: 'linea',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Cinta verde',
-                                            name: 'CINTAVERDE',
+                                            name: 'cinta_verde',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Arbol frente parcela',
-                                            name: 'ARBOL',
+                                            name: 'arbol',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Cesto reglamentario',
-                                            name: 'CESTO',
+                                            name: 'cesto',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -847,49 +969,59 @@
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Afectada ensanche de calle',
-                                            name: 'AFECTADAENSANCHECALLE',
+                                            name: 'afectada_ensanche_calle',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Metros lineales de afectación',
-                                            name: 'METROSLINEALESAFECTACION',
+                                            name: 'metros_lineales_afectacion',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Fondos de manzana',
-                                            name: 'FONDOMANZANA',
+                                            name: 'fondo_manzana',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Ochava reglamentaria',
-                                            name: 'OCHAVAREGLAMENTARIA',
+                                            name: 'ochava_reglamentaria',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Número ordenanza - Año ordenanza',
-                                            name: 'NROORDENANZA',
+                                            name: 'nro_ordenanza',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Superficie afectada',
-                                            name: 'SUPERFICIEAFECTADA',
+                                            name: 'superficie_afectada',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Metros lineales de afectación -fondo de manzana',
-                                            name: 'FONDOMANZANAAFECTACION',
+                                            name: 'fondo_manzana_afectacion',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Metros lineales ochava',
-                                            name: 'METROSLINEALESOCHAVA',
+                                            name: 'metros_lineales_ochava',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -917,57 +1049,72 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Energía eléctrica',
-                                            name: 'ENERGIAELECTRICA',
+                                            name: 'energia_electrica',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Cloacas',
-                                            name: 'CLOACAS',
+                                            name: 'cloacas',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Agua potable',
-                                            name: 'AGUAPOTABLE',
-                                            anchor: '95%'
-                                        }, {
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Gas',
-                                            name: 'GAS',
-                                            anchor: '95%'
-                                        }]
-                                }, {
-                                    columnWidth: .25,
-                                    layout: 'form',
-                                    items: [{
-                                            xtype: 'textfield',
-                                            fieldLabel: 'Gas',
-                                            name: 'GAS2',
+                                            name: 'agua_potable',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Recolección de residuos',
-                                            name: 'RECOLECCIONRESIDUOS',
+                                            name: 'recoleccion_residuos',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
-                                            fieldLabel: 'Alumbrado público',
-                                            name: 'ALUMBRADOPUBLICO',
+                                            fieldLabel: 'Gas',
+                                            name: 'gas',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Tipo calzada',
-                                            name: 'TIPOCALZADA',
+                                            name: 'tipo_calzada',
+                                            anchor: '95%'
+                                        }]
+                                }, {
+                                    columnWidth: .25,
+                                    layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
+                                    items: [{
+                                            xtype: 'textfield',
+                                            fieldLabel: 'Alumbrado público',
+                                            name: 'alumbrado_publico',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -989,102 +1136,21 @@
                     });
                     return form;
                 },
-                datosEdificacionFields: function (options) {
-                    return [{
-                            xtype: 'textfield',
-                            fieldLabel: 'Baldio',
-                            name: 'BALDIO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Detección de baldio',
-                            name: 'DETECCIONBALDIO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Nro. de legajo de obra - ultimo aprobado',
-                            name: 'NROLEGAJO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Destino',
-                            name: 'DESTINO'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '1. Superficie cubierta',
-                            name: 'SUPERFICIECUBIERTA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '2. Superficie semicubierta',
-                            name: 'SUPERFICIESEMICUBIERTA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '3. Superficie piscina',
-                            name: 'SUPERFICIEPISCINA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '4. Reconocimiento de superficie cubierta',
-                            name: 'RECONOCIMIENTOSUPERFICIE'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '5. Reconocimiento de superficie semicubierta',
-                            name: 'RECONOCIMIENTOSUPERFICIESEMI'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '6. Reconocimiento de piscina',
-                            name: 'RECONOCIMIENTOPISCINA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Superficie total con antecedentes',
-                            name: 'TOTALANTECEDENTES'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '7. Superficie cubierta sin permiso',
-                            name: 'SUPERFICIECUBIERTASP'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '8. Superficie semi cubierta sin permiso',
-                            name: 'SUPERFICIESEMICUBIERTASP'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '9. Superficie piscina sin permiso',
-                            name: 'SUPERFICIEPISCINASP'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: '10. Demolición sin permiso',
-                            name: 'DEMOLICIONSP'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Superficie total sin permiso',
-                            name: 'SUPERFICIESP'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Superficie total',
-                            name: 'SUPERFICIETOTAL'
-                        }];
-                },
-                datosEdificacionForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        frame: false,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10px',
-                        labelWidth: 150,
-                        waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%'
-                        },
-                        items: this.datosEdificacionFields(options)
-                    });
-                    return form;
-                },
                 valuacionFields: function (options) {
                     return [{
                             layout: 'column',
                             items: [{
                                     columnWidth: .5,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Zona inmobiliaria',
-                                            name: 'ZONAINMOBILIARIA',
+                                            name: 'zona_inmobiliaria',
                                             anchor: '95%'
                                         }]
                                 }, {
@@ -1093,7 +1159,7 @@
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Zona inmobiliaria anterior',
-                                            name: 'ZONAINMOBILIARIAANTERIOR',
+                                            name: 'zona_inmobiliaria_anterior',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -1102,97 +1168,117 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Valor m2 terreno en zona',
-                                            name: 'VALORTERRENOZONA',
+                                            name: 'valor_terreno_zona',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Valor inmobiliario muni.',
-                                            name: 'VALORMUNICIPAL',
+                                            name: 'valor_municipal',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Costo total servicio',
-                                            name: 'COSTOSERVICIO',
+                                            name: 'costo_servicio',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Exención por baldío',
-                                            name: 'EXENCIONBALDIO',
+                                            name: 'exencion_baldio',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Valor del terreno',
-                                            name: 'VALORTERRENO',
+                                            name: 'valor_terreno',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Coef. infraestructura serv.',
-                                            name: 'COEFINFRAESTRUCTURA',
+                                            name: 'coef_infraestructura',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Fecha desde',
-                                            name: 'FECHADESDE',
+                                            name: 'fecha_desde',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Fecha exento',
-                                            name: 'FECHAEXENTO',
+                                            name: 'fecha_exento',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Valor m2 de edificación',
-                                            name: 'VALORM2EDIFICACION',
+                                            name: 'valor_metro_edificacion',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Valor catastral municipal',
-                                            name: 'VALORCATASTRALMUNICIPAL',
+                                            name: 'valor_catastral_municipal',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Fecha hasta',
-                                            name: 'FECHAHASTA',
+                                            name: 'fecha_hasta',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Categoría',
-                                            name: 'CATEGORIA',
+                                            name: 'categoria',
                                             anchor: '95%'
                                         }]
                                 }, {
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Valor mejora edificada',
-                                            name: 'VALORMEJORAEDIFICADA',
+                                            name: 'valor_mejora_edificada',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Avalúo fiscal municipal',
-                                            name: 'AVALUOFISCALMUNICIAPAL',
+                                            name: 'avaluo_fiscal_municipal',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Tipo valuación',
-                                            name: 'TIPOVALUACION',
+                                            name: 'tipo_valuacion',
                                             anchor: '95%'
                                         }, {
                                             xtype: 'textfield',
                                             fieldLabel: 'Depreciación por antigüedad',
-                                            name: 'DEPRECIACION',
+                                            name: 'depreciacion',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -1201,10 +1287,15 @@
                             items: [{
                                     columnWidth: .25,
                                     layout: 'form',
+                                    defaults: {
+                                        anchor: '95%',
+                                        readOnly: true,
+                                        msgTarget: 'side'
+                                    },
                                     items: [{
                                             xtype: 'textfield',
                                             fieldLabel: 'Porcentaje de inundación',
-                                            name: 'PORCENTAJEINUNDACION',
+                                            name: 'porcentaje_inundacion',
                                             anchor: '95%'
                                         }]
                                 }]
@@ -1223,48 +1314,6 @@
                             anchor: '95%'
                         },
                         items: this.valuacionFields(options)
-                    });
-                    return form;
-                },
-                informacionAdicionalFields: function (options) {
-                    return [{
-                            xtype: 'textfield',
-                            fieldLabel: 'Fotografía parcela',
-                            name: 'FOTOGRAFIAPARCELA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Imagen plano de mensura',
-                            name: 'IMAGENPLANOMENSURA'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Imagen ficha catastral',
-                            name: 'IMAGENFICHACATASTRAL'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Expedientes asociados',
-                            name: 'EXPEDIENTESASOCIADOS'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Vigencias',
-                            name: 'VIGENCIAS'
-                        }, {
-                            xtype: 'textfield',
-                            fieldLabel: 'Observaciones',
-                            name: 'OBSERVACIONES'
-                        }];
-                },
-                informacionAdicionalForm: function (options) {
-                    var form = new Ext.FormPanel({
-                        frame: false,
-                        autoHeight: true,
-                        bodyStyle: 'padding:10px',
-                        labelWidth: 150,
-                        waitTitle: 'Procesando...',
-                        defaults: {
-                            msgTarget: 'side',
-                            anchor: '95%'
-                        },
-                        items: this.informacionAdicionalFields(options)
                     });
                     return form;
                 },
@@ -1436,6 +1485,7 @@
                             xtype: 'textarea',
                             fieldLabel: 'Observaciones',
                             name: 'OBSERVACIONES',
+                            readOnly: true,
                             anchor: '100% - 53'
                         }];
                 },
@@ -1450,7 +1500,6 @@
                     });
                     return form;
                 },
-                
                 unidadCatastral: function (options) {
                     var tabPanel = {
                         border: false,
@@ -1522,17 +1571,17 @@
                                 items: [{
                                         title: 'Fotografía parcela',
                                         items: [
-                                            {html: 'Imagen'}
+                                            {html: '<img src="frente-casa.jpg" height="800" width="800" />'}
                                         ]
                                     }, {
                                         title: 'Plano mensura',
                                         items: [
-                                            {html: 'Imagen'}
+                                            {html: '<img src="plano-mensura.jpg" height="800" width="800" />'}
                                         ]
                                     }, {
                                         title: 'Fichas Catastrales',
                                         items: [
-                                            {html: 'Imagen'}
+                                            {html: '<img src="ficha-catastral.jpg" height="800" width="800" />'}
                                         ]
                                     }, {
                                         title: 'Expedientes asociados',
@@ -1591,14 +1640,17 @@
                         labelAlign: 'top',
                         bodyStyle: 'padding:10px'
                     }));
-                    
-                    
-                    var dumy = {
-                        codigocatastral: 'aaa',
-                        nro_parcela: '222'
+
+
+                    var dummyIdentificacionParcela = {
+                        codigocatastral: '100050608090',
+                        nro_parcela: '878',
+                        superficie: '160.80',
+                        padron_vigente: '0037499',
+                        tipo_predio: 'FAMILIAR'
                     };
-                    
-                    identificacionParcelaForm.getForm().setValues(dumy);
+
+                    identificacionParcelaForm.getForm().setValues(dummyIdentificacionParcela);
 
                     var direccionParcelaForm = new Ext.FormPanel(domain.functions.buildViewForm({
                         fields: domain.objects.direccionParcelaFields,
@@ -1606,6 +1658,16 @@
                         labelAlign: 'top',
                         bodyStyle: 'padding:10px'
                     }));
+
+                    var dummyDireccionParcela = {
+                        calle: 'LIBERTADOR SAN MARTIN ESQUINA AVENIDA BELGRANO',
+                        zona: 'ZONA 8',
+                        nro_piso: '1',
+                        nro_departamento: '8',
+                        nro_portal: '104'
+                    };
+
+                    direccionParcelaForm.getForm().setValues(dummyDireccionParcela);
 
                     var gridPropietarios = domain.objects.gridPropietarios({});
 
@@ -1616,13 +1678,74 @@
                         bodyStyle: 'padding:0px'
                     }));
 
-                    var dumyUC = {
-                        cordenada_x: 'aaa',
-                        nivel: '222'
+                    var dummyUnidadCatastral = {
+                        coordenada_x: '100056.23',
+                        coordenada_y: '562050.60',
+                        nro_parcel_prov: '00284',
+                        nro_partida_prov: '1011051266010019',
+                        nro_manzana: '006830',
+                        nro_parcela: '284',
+                        nro_subparcela: '00001',
+                        nro_unidad: '0000',
+                        nombre_calle: 'CALLE DE SANTA FE',
+                        nro_portal: '3012',
+                        zona: '0088',
+                        nro_piso: '00',
+                        nro_departamento: '0000',
+                        cod_calle_scomenclador: '001252',
+                        cod_calle_ordenanza: '3000',
+                        padron_vigente: '0037499',
+                        padron_anterior: '0000894656',
+                        centro_distrito: '12598',
+                        distrito_rou: 'CENTRAL',
+                        vecinal: 'VECINAL',
+                        nro_plano_mensura: '1651',
+                        nro_lote_mensura: '10',
+                        visado_mensura: '95',
+                        fecha: '12/03/2014',
+                        tipo_regimen: 'NORMAL',
+                        esquina: 'SI',
+                        interno: 'NO',
+                        tipo_pasillo: 'NORMAL',
+                        salida_calle: 'SI',
+                        nivel: 'SI',
+                        superficie_m: '129,00',
+                        frente_m: '9,00',
+                        contrafrente_m: '14,00',
+                        lado_derecho_m: '12,00',
+                        lado_izquierdo_m: '12,00',
+                        superficie_e: '128,90',
+                        frente_e: '8,50',
+                        contrafrente_e: '14,50',
+                        lado_derecho_e: '11,50',
+                        lado_izquierdo_e: '11,50',
+                        ancho_acera_m: '2,00',
+                        ancho_acera_i: '2,10',
+                        ancho_calzada_m: '5,00',
+                        abcho_calzada_i: '4,90',
+                        linea: 'SI',
+                        cinta_verde: 'SI',
+                        arbol: 'NO',
+                        cesto: 'SI',
+                        afectada_ensanche_calle: 'SIN AFECTACION',
+                        metros_lineales_afectacion: '0,00',
+                        fondo_manzana: 'NO',
+                        ochava_reglamentaria: 'SI',
+                        nro_ordenanza: '5125/2014',
+                        superficie_afectada: '0,00',
+                        fondo_manzana_afectacion: '0,00',
+                        metros_lineales_ochava: '1,00',
+                        energia_electrica: 'SI',
+                        cloacas: 'SI',
+                        agua_potable: 'SI',
+                        recoleccion_residuos: 'SI',
+                        gas: 'SI',
+                        tipo_calzada: 'ASFALTO',
+                        alumbrado_publico: 'SI'
                     };
-                    
-                    unidadCatastral.getForm().setValues(dumyUC);
-                   
+
+                    unidadCatastral.getForm().setValues(dummyUnidadCatastral);
+
 
                     var gridEdificaciones = domain.objects.gridEdificaciones({});
 
@@ -1631,6 +1754,30 @@
                         title: 'Valuación',
                         labelAlign: 'top'
                     }));
+
+                    var dummyValuacion = {
+                        zona_inmobiliaria: '6',
+                        zona_inmobiliaria_anterior: '05',
+                        valor_terreno_zona: '23.000,00',
+                        valor_municipal: '21.500,00',
+                        costo_servicio: '5.000,00',
+                        exencion_baldio: 'NO',
+                        valor_terreno: '24.500,00',
+                        coef_infraestructura: '1,50',
+                        fecha_desde: '12/03/2013',
+                        fecha_exento: '-/-/-',
+                        valor_metro_edificacion: '1.500,00',
+                        valor_catastral_municipal: '21.500,00',
+                        fecha_hasta: '17/09/2015',
+                        categoria: 'FAMILIAR',
+                        valor_mejora_edificada: '0,00',
+                        avaluo_fiscal_municipal: '0,00',
+                        tipo_valuacion: 'GENERAL',
+                        depreciacion: 'NO',
+                        porcentaje_inundacion: '0,00'
+                    };
+
+                    valuacionForm.getForm().setValues(dummyValuacion);
 
                     var informacionAdicional = domain.objects.informacionAdicional({});
 
