@@ -95,8 +95,7 @@
                             }]
                     }],
                 /*Campos para formulario de Direccion parcela*/
-                direccionParcelaFields: [
-                    {
+                direccionParcelaFields: [{
                         xtype: 'textfield',
                         fieldLabel: 'Avenida/calle',
                         name: 'calle',
@@ -1601,6 +1600,7 @@
                     return o;
                 }
             };
+            
             domain.functions = {
                 buildViewForm: function (options) {
                     var o = {
