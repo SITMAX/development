@@ -1352,7 +1352,21 @@
                             {header: "Nro. Documento", width: 90, sortable: true, dataIndex: 'nroDocumento'}
                         ],
                         stripeRows: true,
-                        store: store
+                        store: store,
+                        tbar: [{
+                                text: 'Detalles...',
+                                iconCls: 'user',
+                                handler: function () {
+                                    var record = gridPropietarios.getSelectionModel().getSelected();
+                                    if (record) {
+                                        domain.functions.propietarioDetails({
+                                            record: record
+                                        });
+                                    } else {
+                                        com.icg.errors.mustSelect();
+                                    }
+                                }
+                            }]
                     });
                     return gridPropietarios;
                 },
@@ -1580,7 +1594,7 @@
                                     }, {
                                         title: 'Fichas Catastrales',
                                         items: [
-                                            {html: '<img src="ficha-catastral.jpg" height="800" width="800" />'}                
+                                            {html: '<img src="ficha-catastral.jpg" height="800" width="800" />'}
                                         ]
                                     }, {
                                         title: 'Expedientes asociados',
@@ -1600,7 +1614,7 @@
                     return o;
                 }
             };
-            
+
             domain.functions = {
                 buildViewForm: function (options) {
                     var o = {
@@ -1622,6 +1636,56 @@
                         items: options.fields
                     };
                     return o;
+                },
+                propietarioDetails: function (options) {
+                    console.log(options.record);
+                    var form = new Ext.FormPanel({
+                        url: Ext.SROOT + 'guardarusuario',
+                        border: false,
+                        autoHeight: true,
+                        bodyStyle: 'padding:10px',
+                        labelWidth: 130,
+                        items: [{
+                                xtype: 'textfield',
+                                name: 'propietario'
+
+                            }, {
+                                xtype: 'hidden',
+                                name: 'id'
+                            }
+                        ]
+                    });
+
+                    var win = new Ext.Window({
+                        title: 'Detalle Propietario',
+                        autoScroll: true,
+                        width: 600,
+                        height: 300,
+                        minHeight: 250,
+                        minWidth: 550,
+                        items: form,
+                        maximizable: true,
+                        modal: true,
+                        buttonAlign: 'center',
+                        buttons: [{
+                                text: 'Guardar',
+                                handler: function () {
+                                    form.getForm().submit({
+                                        success: function (form, action) {
+                                            options.grid.store.reload();
+                                            win.close();
+                                        },
+                                        failure: function (form, action) {
+
+                                        }
+                                    });
+                                }
+                            }]
+                    });
+                    win.show();
+                    if (options.record) {
+                        form.getForm().loadRecord(options.record);
+                    }
                 }
             };
             //Main App Init
